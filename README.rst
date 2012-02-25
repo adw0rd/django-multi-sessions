@@ -8,21 +8,23 @@ Designed for moving sessions from one session engine to another, without stoppin
 Installation
 ------------
 
-1. Download the gzipped tarball and run ``python setup.py install``,
+#. Download the archive and run ``python setup.py install`` or ``pip install django-multi-sessions``
 
-2. Set ``multi_sessions.session`` as your session engine, like so:
+#. Set ``multi_sessions.session`` as your session engine, like so:
 
        SESSION_ENGINE = 'multi_sessions.session'
 
-3. Example settings:
-
+#. Example settings:
+	
 	SESSION_MULTISESSIONS_POOL = (
 	    {"backend": "redis_sessions.session", "modes": ["read", "write"]},
 	    {"backend": "django.contrib.sessions.backends.db", "modes": ["read", "delete"]},
 	)
 
-4. Available modes:
+#. Available modes:
+
     * "read"   - Allows launch "load" method;
     * "write"  - Allows launch "save" and "create" method;
     * "delete" - Allows launch the "delete" method.
 
+See: http://pypi.python.org/pypi/django-multi-sessions
