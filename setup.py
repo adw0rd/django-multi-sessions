@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='django-multi-sessions',
     version='0.0.1',
-    description="Multi Session Backend For Django",
+    description="Multi-sessions backend for Django",
     long_description="",
     keywords='django, sessions,',
     author='Mikhail Andreev',
