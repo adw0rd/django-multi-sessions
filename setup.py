@@ -5,7 +5,7 @@ setup(
     version='0.0.1',
     description="Multi Session Backend For Django",
     long_description="",
-    keywords='django, sessions,',
+    keywords='django, sessions',
     author='Mikhail Andreev',
     author_email='x11org@gmail.com',
     url='http://github.com/adw0rd/django-multi-sessions',
