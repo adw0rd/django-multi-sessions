@@ -90,7 +90,7 @@ class SessionStore(SessionBase):
             return list(self.pool_backends)
         else:
             backends = []
-            for b in self.pool_backends:
-                if any(map(lambda m: m in b['modes'], modes)):
-                    backends.append(b)
+            for backend in self.pool_backends:
+                if any(map(lambda mode: mode in backend['modes'], modes)):
+                    backends.append(backend)
             return backends

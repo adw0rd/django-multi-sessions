@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
-
+from multi_sessions import __version__
 setup(
     name='django-multi-sessions',
-    version='0.0.2',
+    version=__version__,
     description="Multi-sessions backend for Django",
     long_description="",
     keywords='django, sessions',

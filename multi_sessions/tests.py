@@ -1,7 +1,8 @@
-from session import SessionStore as MultiSession
 import unittest
 import time
 from nose.tools import eq_
+from django.utils.importlib import import_module
+from session import SessionStore as MultiSession
 
 
 class TestMultiSessions(unittest.TestCase):
@@ -11,6 +12,7 @@ class TestMultiSessions(unittest.TestCase):
 
     def test_modify_and_keys(self):
         eq_(self.multi_session.modified, False)
+        self.multi_session.create()
         self.multi_session['test'] = 'test_me'
         eq_(self.multi_session.modified, True)
         eq_(self.multi_session['test'], 'test_me')
@@ -51,6 +53,24 @@ class TestMultiSessions(unittest.TestCase):
         self.multi_session.save()
         session_data = self.multi_session.load()
         eq_(session_data.get('item_test'), 777)
+            
+    def test_multiple_backends_separately(self):
+        # Check the backend if more than two
+        if len(self.multi_session.pool_backends) < 2:
+            return None
+        self.multi_session.create()
+        session_key = self.multi_session.session_key
+        for backend in self.multi_session.pool_backends:
+            engine = import_module(backend['backend'])
+            session = engine.SessionStore(session_key)
+            if "write" not in backend["modes"]:
+                eq_(session.exists(session_key), False)
+            if "write" in backend["modes"]:
+                eq_(session.exists(session_key), True)
+            if "delete" in backend["modes"] and session.exists(session_key) is True:
+                session.delete(session_key)
+                eq_(session.exists(session_key), False)
+
 
 if __name__ == '__main__':
     import os
