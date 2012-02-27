@@ -12,7 +12,7 @@ Installation
 
 #. Set ``multi_sessions.session`` as your session engine, like so:
 
-       SESSION_ENGINE = 'multi_sessions.session'
+       SESSION_ENGINE = "multi_sessions.session"
 
 #. Example settings:
 	
