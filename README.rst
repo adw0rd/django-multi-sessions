@@ -23,8 +23,8 @@ Installation
 
 #. Available modes:
 
-    * "read"   - Allows launch "load" method;
-    * "write"  - Allows launch "save" and "create" method;
-    * "delete" - Allows launch the "delete" method.
+* "read"   - Allows launch "load" method;
+* "write"  - Allows launch "save" and "create" method;
+* "delete" - Allows launch the "delete" method.
 
 See: http://pypi.python.org/pypi/django-multi-sessions
