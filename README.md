@@ -13,22 +13,22 @@ For more information see:
 Installation
 ------------
 
-#. Download the archive and run ``python setup.py install`` or ``pip install django-multi-sessions``
+1\. Download the archive and run ``python setup.py install`` or ``pip install django-multi-sessions``
 
-#. Set ``multi_sessions.session`` as your session engine, like so:
+2\. Set ``multi_sessions.session`` as your session engine, like so:
 
-       SESSION_ENGINE = "multi_sessions.session"
+<pre><code>SESSION_ENGINE = "multi_sessions.session"
+</code></pre>
 
-#. Example settings:
+3\. Example settings:
 
-<pre><code>
-    SESSION_MULTISESSIONS_POOL = (
+<pre><code>SESSION_MULTISESSIONS_POOL = (
         {"backend": "redis_sessions.session", "modes": ["read", "write"]},
         {"backend": "django.contrib.sessions.backends.db", "modes": ["read", "delete"]},
     )
 </code></pre>
 
-#. Available modes:
+4\. Available modes:
 
 * "read"   - Allows launch "load" method;
 * "write"  - Allows launch "save" and "create" method;
