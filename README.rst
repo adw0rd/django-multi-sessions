@@ -9,8 +9,10 @@ Designed for moving sessions from one session engine to another, without stoppin
 
 For more information see:
 
-* http://pypi.python.org/pypi/django-multi-sessions
-* http://adw0rd.com/2012/django-multi-sessions/en/
+* http://adw0rd.com/2012/django-multi-sessions/en/ - article about it in English
+* http://adw0rd.com/2012/django-multi-sessions/en/ - article about it in Russian
+* http://pypi.python.org/pypi/django-multi-sessions - the PyPI page
+* https://github.com/adw0rd/django-multi-sessions - the GitHub repository
 
 ------------
 Installation
