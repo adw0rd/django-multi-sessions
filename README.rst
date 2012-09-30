@@ -2,6 +2,9 @@ django-multi-sessions
 =======================
 Multiple backends for your sessions!
 
+.. image:: https://secure.travis-ci.org/adw0rd/django-multi-sessions.png
+    :target: http://travis-ci.org/adw0rd/django-multi-sessions
+
 Designed for moving sessions from one session engine to another, without stopping the current sessions. It consistently passes backends in the list (settings.SESSION_MULTISESSIONS_POOL) and depending on the modes of doing the necessary.
 
 For more information see:
@@ -15,18 +18,17 @@ Installation
 
 1\. Download the archive and run ``python setup.py install`` or ``pip install django-multi-sessions``
 
-2\. Set ``multi_sessions.session`` as your session engine, like so:
+2\. Set ``multi_sessions.session`` as your session engine, like so::
 
-<pre><code>SESSION_ENGINE = "multi_sessions.session"
-</code></pre>
+        SESSION_ENGINE = "multi_sessions.session"
 
-3\. Example settings:
+3\. Example settings::
 
-<pre><code>SESSION_MULTISESSIONS_POOL = (
-        {"backend": "redis_sessions.session", "modes": ["read", "write"]},
-        {"backend": "django.contrib.sessions.backends.db", "modes": ["read", "delete"]},
-    )
-</code></pre>
+        SESSION_MULTISESSIONS_POOL = (
+            {"backend": "redis_sessions.session", "modes": ["read", "write"]},
+            {"backend": "django.contrib.sessions.backends.db", "modes": ["read", "delete"]},
+        )
+
 
 4\. Available modes:
 
