@@ -1,7 +1,10 @@
-import unittest
 import time
+import unittest
 from nose.tools import eq_
+
 from django.utils.importlib import import_module
+from django.core.management.color import no_style
+
 from session import SessionStore as MultiSession
 
 
@@ -9,6 +12,27 @@ class TestMultiSessions(unittest.TestCase):
 
     def setUp(self):
         self.multi_session = MultiSession()
+
+        # Create the django_session table
+        from django.db import connection
+        from django.contrib.sessions.models import Session
+
+        self.django_session_model = Session
+        self.database_cursor = connection.cursor()
+
+        tables = connection.introspection.table_names()
+        if Session._meta.db_table not in tables:
+            sql, references = connection.creation.sql_create_model(self.django_session_model, no_style())
+            for statement in sql:
+                self.database_cursor.execute(statement)
+
+    def tearDown(self):
+        # Destroy the django_session table
+        from django.db import connection
+
+        sql = connection.creation.sql_destroy_model(self.django_session_model, {}, no_style())
+        for statement in sql:
+            self.database_cursor.execute(statement)
 
     def test_modify_and_keys(self):
         eq_(self.multi_session.modified, False)
