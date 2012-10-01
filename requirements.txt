@@ -1,2 +1,0 @@
-nose>=1.2.1
-django-redis-sessions>=0.3.1
