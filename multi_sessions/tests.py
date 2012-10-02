@@ -102,5 +102,5 @@ if __name__ == '__main__':
     unittest.main()
 
 # To run the test suite
-# pip install nose
+# pip install nose django-redis-sessions
 # python tests.py -v

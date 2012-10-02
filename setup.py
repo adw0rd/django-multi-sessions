@@ -1,13 +1,12 @@
 from setuptools import setup, find_packages
 from multi_sessions import __version__
 
-long_description = ""
 try:
     readme = open("README.rst")
     long_description = str(readme.read())
-finally:
     readme.close()
-
+except:
+    long_description = ""
 
 setup(
     name='django-multi-sessions',
