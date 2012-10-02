@@ -1,12 +1,13 @@
 from setuptools import setup, find_packages
 from multi_sessions import __version__
 
+long_description = ""
 try:
     readme = open("README.rst")
     long_description = str(readme.read())
     readme.close()
 except:
-    long_description = ""
+    pass
 
 setup(
     name='django-multi-sessions',
@@ -23,9 +24,11 @@ setup(
     install_requires=['setuptools', ],
     include_package_data=True,
     classifiers=[
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        "Framework :: Django",
         "Environment :: Web Environment",
+        "Programming Language :: Python",
+        "Framework :: Django",
+        "License :: OSI Approved :: BSD License",
+        "Topic :: Software Development :: Libraries :: Application Frameworks",
+        "Topic :: Software Development :: Libraries :: Python Modules",
     ],
 )
