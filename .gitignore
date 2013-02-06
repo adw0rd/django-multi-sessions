@@ -1,7 +1,4 @@
-*~
 *.pyc
-_build/
-dist/
-*.egg-info
+*.mo
+*~
 .idea
-test.db
