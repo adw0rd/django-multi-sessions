@@ -20,3 +20,5 @@ SESSION_MULTISESSIONS_POOL = (
         "modes": ["read", "delete"],
     },
 )
+
+SECRET_KEY = "test"
