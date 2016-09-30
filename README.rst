@@ -4,9 +4,6 @@ Multiple backends for your sessions!
 
 .. image:: https://secure.travis-ci.org/adw0rd/django-multi-sessions.png
     :target: http://travis-ci.org/adw0rd/django-multi-sessions
-    
-.. image:: https://pypip.in/d/django-multi-sessions/badge.png
-    :target: http://pypi.python.org/pypi/django-multi-sessions
 
 Designed for moving sessions from one session engine to another, without stopping the current sessions. It consistently passes backends in the list (settings.SESSION_MULTISESSIONS_POOL) and depending on the modes of doing the necessary.
 
